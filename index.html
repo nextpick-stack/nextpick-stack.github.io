@@ -6,81 +6,98 @@
 <title>NextPick Stack</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+body { background:#000; color:#fff; overflow-x:hidden; }
 
-body { 
-    background:#000000; /* Black background */ 
-    color:#ffffff; /* White text */ 
-    min-height:100vh; 
-    display:flex; 
-    justify-content:center; 
-    align-items:center; 
-    text-align:center; 
-    overflow:hidden; 
+/* SPLASH SCREEN */
+.splash { 
+    position:fixed; top:0; left:0; width:100%; height:100%; 
+    display:flex; flex-direction:column; justify-content:center; align-items:center; 
+    background:#000; z-index:10; transition: opacity 1s ease; 
+}
+.splash.hidden { opacity:0; pointer-events:none; }
+
+/* Animated logo */
+.logo { text-align:center; margin-bottom:20px; }
+.logo span { display:inline-block; margin:0 10px; font-weight:bold; font-size:80px; color:#fff; text-shadow: 0 0 15px #fff, 0 0 30px #fff; animation: flyin 1.5s ease forwards; }
+.logo span:nth-child(1) { animation-delay: 0s; }  /* 🎮Next */
+.logo span:nth-child(2) { animation-delay: 0.3s; } /* 📚Pick */
+.logo span:nth-child(3) { animation-delay: 0.6s; } /* 🎵Stack */
+
+/* Fly-in animation */
+@keyframes flyin {
+    0% { transform: translateY(-200px) scale(0); opacity:0; }
+    60% { transform: translateY(20px) scale(1.2); opacity:1; }
+    100% { transform: translateY(0) scale(1); opacity:1; }
 }
 
-/* Splash and main page */
-.splash, .main { position:absolute; top:0; left:0; width:100%; height:100%; display:flex; justify-content:center; align-items:center; flex-direction:column; transition: opacity 0.8s ease; }
-.splash { background:#000000; z-index:2; }
-.splash.hidden { opacity:0; pointer-events:none; z-index:0; }
+/* Splash description */
+.splash p { margin-top:20px; font-size:20px; opacity:0; max-width:500px; text-align:center; animation: fadein 2s ease forwards; animation-delay:1.5s; }
+@keyframes fadein { 0% {opacity:0;} 100%{opacity:0.8;} }
 
-/* Logo styling */
-.logo { font-weight:bold; margin-bottom:20px; line-height:1.2; text-shadow: 0 0 10px #fff, 0 0 20px #fff; } /* Neon white glow */
-.logo span { color:#ffffff; }
+/* MAIN HOMEPAGE */
+.main { display:none; padding:40px 20px; max-width:1000px; margin:0 auto; text-align:center; }
+.section { display:flex; flex-direction:column; align-items:center; padding:60px 20px; border-bottom:1px solid #222; }
+.section-icon { font-size:100px; text-shadow: 0 0 15px #007bff, 0 0 30px #007bff; margin-bottom:20px; }
+.section h2 { font-size:36px; margin-bottom:15px; text-shadow:0 0 10px #007bff; }
+.section p { font-size:18px; margin-bottom:20px; opacity:0.9; max-width:600px; }
 
-/* Main page */
-.main { display:none; flex-direction:column; padding:20px; }
-.main p { font-size:18px; opacity:0.9; margin-bottom:30px; color:#ffffff; text-shadow: 0 0 5px #fff; }
-
-/* Buttons with icon inside */
-.button { 
-    display:flex; 
-    align-items:center; 
-    justify-content:center; 
-    background:#007bff; /* Blue button */ 
-    padding:18px; 
-    margin:12px 0; 
-    text-decoration:none; 
-    color:#ffffff; 
-    border-radius:12px; 
-    font-weight:bold; 
-    transition:0.3s; 
-    min-width:220px;
-    font-size:18px;
-    box-shadow: 0 0 10px #007bff, 0 0 20px #007bff; /* Neon glow */
+/* Button inside sections */
+.section a.button { 
+    display:flex; align-items:center; justify-content:center; background:#007bff; 
+    color:#fff; padding:20px 40px; border-radius:15px; font-weight:bold; font-size:20px; 
+    text-decoration:none; transition:0.3s; box-shadow: 0 0 15px #007bff, 0 0 30px #007bff;
 }
-.button:hover { background:#0056b3; transform: scale(1.05); box-shadow: 0 0 15px #00f, 0 0 25px #00f; }
-.button span { margin-left:10px; font-size:20px; }
+.section a.button:hover { background:#0056b3; transform:scale(1.05); box-shadow:0 0 20px #00f, 0 0 40px #00f; }
 
-/* Responsive design */
-@media (min-width:768px) {
-    .logo span { font-size:60px; } /* Bigger neon logo */
-    .main p { font-size:22px; }
-    .button { padding:22px; min-width:250px; font-size:20px; }
-    .button span { font-size:22px; }
-}
 </style>
 </head>
 <body>
 
-<!-- Splash Screen -->
+<!-- SPLASH SCREEN -->
 <div class="splash" id="splash">
     <div class="logo">
         🎮<span>Next</span> 📚<span>Pick</span> 🎵<span>Stack</span>
     </div>
-    <p>Click anywhere or wait 2 seconds to enter</p>
+    <p>Welcome to NextPick Stack – your ultimate hub for games, music, books, and manga. Discover, explore, and enjoy content all in one place!</p>
 </div>
 
-<!-- Main Homepage -->
+<!-- MAIN HOMEPAGE -->
 <div class="main" id="main">
-    <p>Explore games, music, books, and manga all in one place.</p>
+    <!-- GAME SECTION -->
+    <div class="section" id="game">
+        <div class="section-icon">🎮</div>
+        <h2>Games</h2>
+        <p>Explore a curated collection of exciting games, from indie gems to popular titles. Play online or download your favorites directly.</p>
+        <a href="#" class="button">Enter Game Section</a>
+    </div>
 
-    <a href="#" class="button"><span>🎮</span> <span>Game</span></a>
-    <a href="#" class="button"><span>🎵</span> <span>Music</span></a>
-    <a href="#" class="button"><span>📚</span> <span>Book</span></a>
-    <a href="#" class="button"><span>📖</span> <span>Manga</span></a>
+    <!-- MUSIC SECTION -->
+    <div class="section" id="music">
+        <div class="section-icon">🎵</div>
+        <h2>Music</h2>
+        <p>Discover the latest hits, classic tracks, and hidden musical treasures. Listen, enjoy, and share your favorite music easily.</p>
+        <a href="#" class="button">Enter Music Section</a>
+    </div>
+
+    <!-- BOOK SECTION -->
+    <div class="section" id="book">
+        <div class="section-icon">📚</div>
+        <h2>Books</h2>
+        <p>Dive into a world of literature. Find bestsellers, classic novels, and insightful reads across multiple genres.</p>
+        <a href="#" class="button">Enter Book Section</a>
+    </div>
+
+    <!-- MANGA SECTION -->
+    <div class="section" id="manga">
+        <div class="section-icon">📖</div>
+        <h2>Manga</h2>
+        <p>Explore manga series from all genres. Read your favorite titles, discover new stories, and enjoy rich illustrations.</p>
+        <a href="#" class="button">Enter Manga Section</a>
+    </div>
 </div>
 
 <script>
+// Splash screen animation
 const splash = document.getElementById('splash');
 const main = document.getElementById('main');
 
@@ -88,13 +105,13 @@ function showMain() {
     splash.classList.add('hidden');
     setTimeout(() => {
         splash.style.display = 'none';
-        main.style.display = 'flex';
-    }, 800);
+        main.style.display = 'block';
+    }, 1000);
 }
 
-// Click or wait 2 seconds
+// Click or wait 3 seconds
 splash.addEventListener('click', showMain);
-setTimeout(showMain, 2000);
+setTimeout(showMain, 3000);
 </script>
 
 </body>
