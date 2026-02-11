@@ -6,24 +6,65 @@
 <title>NextPick Stack</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
-body { background:#0f0f0f; color:white; display:flex; justify-content:center; align-items:center; height:100vh; text-align:center; padding:20px; }
-.container { max-width:400px; width:100%; }
-h1 { font-size:36px; margin-bottom:15px; }
-p { opacity:0.8; margin-bottom:30px; }
-.button { display:block; background:#1f1f1f; padding:15px; margin:10px 0; text-decoration:none; color:white; border-radius:8px; transition:0.3s; }
-.button:hover { background:#333; }
+
+body { 
+    background: #ffffff; /* White background */ 
+    color: #111; /* Dark text */ 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    text-align: center; 
+    padding: 20px; 
+}
+
+.container { max-width: 400px; width: 100%; }
+
+h1 { font-size: 36px; margin-bottom: 15px; color: #111; }
+p { opacity:0.8; margin-bottom:40px; font-size:16px; }
+
+.button { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background: #007bff; /* Blue button */ 
+    padding: 15px; 
+    margin: 10px 0; 
+    text-decoration: none; 
+    color: white; 
+    border-radius: 10px; 
+    font-weight: bold; 
+    transition: 0.3s; 
+}
+
+.button:hover { 
+    background: #ff4d4d; /* Red on hover */ 
+    transform: scale(1.05); 
+}
+
+.button span { margin-left:10px; font-size:14px; }
+.icon { width:20px; height:20px; display:inline-block; }
+
 </style>
 </head>
 <body>
 
 <div class="container">
     <h1>NextPick Stack</h1>
-    <p>Explore games, music, books, and manga.</p>
+    <p>Explore games, music, books, and manga all in one place.</p>
 
-    <a href="#" class="button">Game</a>
-    <a href="#" class="button">Music</a>
-    <a href="#" class="button">Book</a>
-    <a href="#" class="button">Manga</a>
+    <a href="#" class="button">
+        <span class="icon">🎮</span> <span>Game</span>
+    </a>
+    <a href="#" class="button">
+        <span class="icon">🎵</span> <span>Music</span>
+    </a>
+    <a href="#" class="button">
+        <span class="icon">📚</span> <span>Book</span>
+    </a>
+    <a href="#" class="button">
+        <span class="icon">📖</span> <span>Manga</span>
+    </a>
 </div>
 
 </body>
