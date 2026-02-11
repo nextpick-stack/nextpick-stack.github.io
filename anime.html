@@ -5,50 +5,79 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anime - NextPick Stack</title>
 <style>
-body { background:#000; color:#fff; font-family: Arial, sans-serif; text-align:center; padding:30px; }
+/* Body & Gradient Background */
+body { 
+  background: linear-gradient(180deg, #000000, #0a0a0a, #111111); 
+  color:#fff; 
+  font-family: Arial, sans-serif; 
+  text-align:center; 
+  padding:30px; 
+}
+
+/* Main Title & Description */
 h1 { font-size:50px; margin-bottom:10px; text-shadow:0 0 20px #007bff,0 0 40px #007bff; }
 .description { font-size:18px; margin-bottom:40px; opacity:0.9; }
 
 /* Main Anime Icon */
 .main-icon { font-size:120px; margin-bottom:30px; text-shadow:0 0 20px #007bff,0 0 40px #007bff; animation: bounce 1s infinite alternate; }
-
-/* Bounce animation */
 @keyframes bounce { 0% {transform: translateY(0);} 100% {transform: translateY(-15px);} }
 
-/* Genre grid */
+/* Genre Grid */
 .genre-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-bottom:40px; }
-.genre { display:flex; flex-direction:column; align-items:center; justify-content:center; width:100px; height:100px; 
-        background:#111; border-radius:15px; font-size:24px; color:#fff; text-decoration:none; 
-        box-shadow:0 0 10px #007bff,0 0 20px #007bff; transition:0.3s; }
+
+/* Genre Buttons */
+.genre { 
+  display:flex; flex-direction:column; align-items:center; justify-content:center; 
+  width:100px; height:100px; background:#111; border-radius:15px; 
+  font-size:24px; color:#fff; text-decoration:none; 
+  box-shadow:0 0 10px #007bff,0 0 20px #007bff; transition:0.3s; 
+}
 .genre span { margin-top:5px; font-size:16px; }
+
+/* Tap/Click Neon Effect */
+.genre:active { 
+  box-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff; 
+  transform: scale(1.15); 
+}
+
+/* Bounce animation for top 3 genres */
+.genre:nth-child(1),
+.genre:nth-child(2),
+.genre:nth-child(3) { animation: bounceIcon 1s ease infinite alternate; }
+@keyframes bounceIcon { 0% { transform: translateY(0) scale(1);} 100% { transform: translateY(-10px) scale(1.05);} }
+
+/* Hover effect */
 .genre:hover { background:#007bff; color:#000; transform:scale(1.1); box-shadow:0 0 20px #00f,0 0 40px #00f; }
 
-/* Back button */
+/* Back Button */
 .back { display:inline-block; padding:15px 30px; background:#007bff; color:#fff; border-radius:15px; 
         text-decoration:none; font-weight:bold; font-size:18px; box-shadow:0 0 15px #007bff,0 0 30px #007bff; transition:0.3s; }
 .back:hover { background:#0056b3; transform:scale(1.05); box-shadow:0 0 20px #00f,0 0 40px #00f; }
+
+/* Smooth scroll for future sub-sections */
+html { scroll-behavior: smooth; }
 </style>
 </head>
 <body>
 
-<!-- Main Icon -->
+<!-- Main Anime Icon -->
 <div class="main-icon">🎬</div>
 
 <h1>Anime</h1>
-<p class="description">Explore your favorite anime genres! Tap any icon to discover Action, Adventure, Shonen, Shojo, Fantasy, Romance, Comedy, and more!</p>
+<p class="description">Explore your favorite anime genres! Tap any icon to discover Action, Adventure, Romance, Shonen, Shojo, Fantasy, Seinen, Josei, Comedy, and Drama!</p>
 
-<!-- Genre grid -->
+<!-- Genre Grid -->
 <div class="genre-grid">
-  <a href="shonen.html" class="genre">🎯<span>Shonen</span></a>
-  <a href="shojo.html" class="genre">💖<span>Shojo</span></a>
-  <a href="seinen.html" class="genre">🛡️<span>Seinen</span></a>
-  <a href="josei.html" class="genre">👑<span>Josei</span></a>
-  <a href="action.html" class="genre">⚔️<span>Action</span></a>
-  <a href="adventure.html" class="genre">🗺️<span>Adventure</span></a>
-  <a href="fantasy.html" class="genre">🏰<span>Fantasy</span></a>
-  <a href="romance.html" class="genre">❤️<span>Romance</span></a>
-  <a href="comedy.html" class="genre">😂<span>Comedy</span></a>
-  <a href="drama.html" class="genre">🎭<span>Drama</span></a>
+  <a href="action.html" class="genre" title="Fight epic battles in Action anime!">⚔️<span>Action</span></a>
+  <a href="adventure.html" class="genre" title="Embark on thrilling Adventures!">🗺️<span>Adventure</span></a>
+  <a href="romance.html" class="genre" title="Enjoy heartwarming Romance stories!">❤️<span>Romance</span></a>
+  <a href="shonen.html" class="genre" title="Classic Shonen anime for all ages!">🎯<span>Shonen</span></a>
+  <a href="shojo.html" class="genre" title="Shojo anime with love and drama!">💖<span>Shojo</span></a>
+  <a href="fantasy.html" class="genre" title="Dive into magical Fantasy worlds!">🏰<span>Fantasy</span></a>
+  <a href="seinen.html" class="genre" title="Seinen anime for mature audiences!">🛡️<span>Seinen</span></a>
+  <a href="josei.html" class="genre" title="Josei anime focusing on daily life and romance!">👑<span>Josei</span></a>
+  <a href="comedy.html" class="genre" title="Laugh with hilarious Comedy anime!">😂<span>Comedy</span></a>
+  <a href="drama.html" class="genre" title="Experience intense Drama anime!">🎭<span>Drama</span></a>
 </div>
 
 <!-- Back to Home -->
