@@ -19,9 +19,9 @@ body { background:#000; color:#fff; overflow-x:hidden; }
 /* Animated logo */
 .logo { text-align:center; margin-bottom:20px; }
 .logo span { display:inline-block; margin:0 10px; font-weight:bold; font-size:80px; color:#fff; text-shadow: 0 0 15px #fff, 0 0 30px #fff; animation: flyin 1.5s ease forwards; }
-.logo span:nth-child(1) { animation-delay: 0s; }  /* 🎮Next */
-.logo span:nth-child(2) { animation-delay: 0.3s; } /* 📚Pick */
-.logo span:nth-child(3) { animation-delay: 0.6s; } /* 🎵Stack */
+.logo span:nth-child(1) { animation-delay: 0s; }
+.logo span:nth-child(2) { animation-delay: 0.3s; }
+.logo span:nth-child(3) { animation-delay: 0.6s; }
 
 /* Fly-in animation */
 @keyframes flyin {
@@ -36,19 +36,20 @@ body { background:#000; color:#fff; overflow-x:hidden; }
 
 /* MAIN HOMEPAGE */
 .main { display:none; padding:40px 20px; max-width:1000px; margin:0 auto; text-align:center; }
+
+/* Sections */
 .section { display:flex; flex-direction:column; align-items:center; padding:60px 20px; border-bottom:1px solid #222; }
 .section-icon { font-size:100px; text-shadow: 0 0 15px #007bff, 0 0 30px #007bff; margin-bottom:20px; }
 .section h2 { font-size:36px; margin-bottom:15px; text-shadow:0 0 10px #007bff; }
 .section p { font-size:18px; margin-bottom:20px; opacity:0.9; max-width:600px; }
 
-/* Button inside sections */
+/* Buttons inside sections */
 .section a.button { 
     display:flex; align-items:center; justify-content:center; background:#007bff; 
     color:#fff; padding:20px 40px; border-radius:15px; font-weight:bold; font-size:20px; 
     text-decoration:none; transition:0.3s; box-shadow: 0 0 15px #007bff, 0 0 30px #007bff;
 }
 .section a.button:hover { background:#0056b3; transform:scale(1.05); box-shadow:0 0 20px #00f, 0 0 40px #00f; }
-
 </style>
 </head>
 <body>
@@ -58,42 +59,44 @@ body { background:#000; color:#fff; overflow-x:hidden; }
     <div class="logo">
         🎮<span>Next</span> 📚<span>Pick</span> 🎵<span>Stack</span>
     </div>
-    <p>Welcome to NextPick Stack – your ultimate hub for games, music, books, and manga. Discover, explore, and enjoy content all in one place!</p>
+    <p>Welcome to NextPick Stack – your ultimate hub for games, music, books, and anime. Discover, explore, and enjoy content all in one place!</p>
 </div>
 
 <!-- MAIN HOMEPAGE -->
 <div class="main" id="main">
+
     <!-- GAME SECTION -->
     <div class="section" id="game">
         <div class="section-icon">🎮</div>
         <h2>Games</h2>
-        <p>Explore a curated collection of exciting games, from indie gems to popular titles. Play online or download your favorites directly.</p>
-        <a href="#" class="button">Enter Game Section</a>
+        <p>Explore a curated collection of exciting games, from Action, Adventure, Puzzle, RPG, Sports, Simulation, Strategy, to Casual genres. Play online or download your favorites directly.</p>
+        <a href="games.html" class="button">Enter Game Section</a>
     </div>
 
     <!-- MUSIC SECTION -->
     <div class="section" id="music">
         <div class="section-icon">🎵</div>
         <h2>Music</h2>
-        <p>Discover the latest hits, classic tracks, and hidden musical treasures. Listen, enjoy, and share your favorite music easily.</p>
-        <a href="#" class="button">Enter Music Section</a>
+        <p>Discover the latest hits, classic tracks, and hidden musical treasures. Explore Pop, Rock, Hip Hop, Jazz, Classical, EDM, and more. Listen, enjoy, and share your favorite music easily.</p>
+        <a href="music.html" class="button">Enter Music Section</a>
     </div>
 
     <!-- BOOK SECTION -->
     <div class="section" id="book">
         <div class="section-icon">📚</div>
         <h2>Books</h2>
-        <p>Dive into a world of literature. Find bestsellers, classic novels, and insightful reads across multiple genres.</p>
-        <a href="#" class="button">Enter Book Section</a>
+        <p>Dive into a world of literature. Find Fiction, Non-Fiction, Mystery, Sci-Fi, Fantasy, Romance, Biography, and more. Read your favorite titles and discover new stories.</p>
+        <a href="books.html" class="button">Enter Book Section</a>
     </div>
 
-    <!-- MANGA SECTION -->
-    <div class="section" id="manga">
-        <div class="section-icon">📖</div>
-        <h2>Manga</h2>
-        <p>Explore manga series from all genres. Read your favorite titles, discover new stories, and enjoy rich illustrations.</p>
-        <a href="#" class="button">Enter Manga Section</a>
+    <!-- ANIME SECTION -->
+    <div class="section" id="anime">
+        <div class="section-icon">🎬</div>
+        <h2>Anime</h2>
+        <p>Watch your favorite anime series and movies. Explore Action, Adventure, Fantasy, Romance, Comedy, Shonen, Shojo, and Seinen genres. Enjoy safe and legal streaming in one place.</p>
+        <a href="anime.html" class="button">Enter Anime Section</a>
     </div>
+
 </div>
 
 <script>
