@@ -5,66 +5,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anime - NextPick Stack</title>
 <style>
-body { 
-    background:#000; 
-    color:#fff; 
-    font-family: Arial, sans-serif; 
-    text-align:center; 
-    padding:40px; 
-}
+body { background:#000; color:#fff; font-family: Arial, sans-serif; text-align:center; padding:30px; }
+h1 { font-size:50px; margin-bottom:10px; text-shadow:0 0 20px #007bff,0 0 40px #007bff; }
+.description { font-size:18px; margin-bottom:40px; opacity:0.9; }
 
-/* Title and icon */
-h1 { font-size:60px; margin-bottom:20px; text-shadow: 0 0 20px #007bff, 0 0 40px #007bff; }
-.section-icon { font-size:120px; margin-bottom:20px; text-shadow: 0 0 20px #007bff, 0 0 40px #007bff; }
+/* Main Anime Icon */
+.main-icon { font-size:120px; margin-bottom:30px; text-shadow:0 0 20px #007bff,0 0 40px #007bff; animation: bounce 1s infinite alternate; }
 
-/* Genres list */
-.genre { 
-    font-size:28px; 
-    margin:15px 0; 
-    text-shadow: 0 0 10px #007bff; 
-}
+/* Bounce animation */
+@keyframes bounce { 0% {transform: translateY(0);} 100% {transform: translateY(-15px);} }
 
-/* Back to Home button */
-.back { 
-    display:inline-block; 
-    margin-top:40px; 
-    padding:20px 40px; 
-    background:#007bff; 
-    color:#fff; 
-    border-radius:15px; 
-    text-decoration:none; 
-    font-weight:bold; 
-    font-size:20px; 
-    box-shadow: 0 0 15px #007bff, 0 0 30px #007bff; 
-    transition:0.3s; 
-}
-.back:hover { 
-    background:#0056b3; 
-    transform:scale(1.05); 
-    box-shadow: 0 0 20px #00f, 0 0 40px #00f; 
-}
+/* Genre grid */
+.genre-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-bottom:40px; }
+.genre { display:flex; flex-direction:column; align-items:center; justify-content:center; width:100px; height:100px; 
+        background:#111; border-radius:15px; font-size:24px; color:#fff; text-decoration:none; 
+        box-shadow:0 0 10px #007bff,0 0 20px #007bff; transition:0.3s; }
+.genre span { margin-top:5px; font-size:16px; }
+.genre:hover { background:#007bff; color:#000; transform:scale(1.1); box-shadow:0 0 20px #00f,0 0 40px #00f; }
+
+/* Back button */
+.back { display:inline-block; padding:15px 30px; background:#007bff; color:#fff; border-radius:15px; 
+        text-decoration:none; font-weight:bold; font-size:18px; box-shadow:0 0 15px #007bff,0 0 30px #007bff; transition:0.3s; }
+.back:hover { background:#0056b3; transform:scale(1.05); box-shadow:0 0 20px #00f,0 0 40px #00f; }
 </style>
 </head>
 <body>
 
-<div class="section-icon">🎬</div>
+<!-- Main Icon -->
+<div class="main-icon">🎬</div>
+
 <h1>Anime</h1>
+<p class="description">Explore your favorite anime genres! Tap any icon to discover Action, Adventure, Shonen, Shojo, Fantasy, Romance, Comedy, and more!</p>
 
-<p>Explore all your favorite anime genres. Watch safe and legal content from Shonen, Shojo, Seinen, Josei, Action, Adventure, Fantasy, Romance, Comedy, and more!</p>
+<!-- Genre grid -->
+<div class="genre-grid">
+  <a href="shonen.html" class="genre">🎯<span>Shonen</span></a>
+  <a href="shojo.html" class="genre">💖<span>Shojo</span></a>
+  <a href="seinen.html" class="genre">🛡️<span>Seinen</span></a>
+  <a href="josei.html" class="genre">👑<span>Josei</span></a>
+  <a href="action.html" class="genre">⚔️<span>Action</span></a>
+  <a href="adventure.html" class="genre">🗺️<span>Adventure</span></a>
+  <a href="fantasy.html" class="genre">🏰<span>Fantasy</span></a>
+  <a href="romance.html" class="genre">❤️<span>Romance</span></a>
+  <a href="comedy.html" class="genre">😂<span>Comedy</span></a>
+  <a href="drama.html" class="genre">🎭<span>Drama</span></a>
+</div>
 
-<div class="genre">Shonen</div>
-<div class="genre">Shojo</div>
-<div class="genre">Seinen</div>
-<div class="genre">Josei</div>
-<div class="genre">Action</div>
-<div class="genre">Adventure</div>
-<div class="genre">Fantasy</div>
-<div class="genre">Romance</div>
-<div class="genre">Comedy</div>
-<div class="genre">Drama</div>
-<div class="genre">Mecha</div>
-<div class="genre">Sports</div>
-
+<!-- Back to Home -->
 <a href="index.html" class="back">Back to Home</a>
 
 </body>
