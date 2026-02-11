@@ -31,6 +31,7 @@ h1 { font-size:50px; margin-bottom:10px; text-shadow:0 0 20px #007bff,0 0 40px #
   width:100px; height:100px; background:#111; border-radius:15px; 
   font-size:24px; color:#fff; text-decoration:none; 
   box-shadow:0 0 10px #007bff,0 0 20px #007bff; transition:0.3s; 
+  animation: bounceIcon 1s ease infinite alternate;
 }
 .genre span { margin-top:5px; font-size:16px; }
 
@@ -40,11 +41,8 @@ h1 { font-size:50px; margin-bottom:10px; text-shadow:0 0 20px #007bff,0 0 40px #
   transform: scale(1.15); 
 }
 
-/* Bounce animation for top 3 genres */
-.genre:nth-child(1),
-.genre:nth-child(2),
-.genre:nth-child(3) { animation: bounceIcon 1s ease infinite alternate; }
-@keyframes bounceIcon { 0% { transform: translateY(0) scale(1);} 100% { transform: translateY(-10px) scale(1.05);} }
+/* Bounce animation for all genres */
+@keyframes bounceIcon { 0% { transform: translateY(0) scale(1);} 100% { transform: translateY(-8px) scale(1.05);} }
 
 /* Hover effect */
 .genre:hover { background:#007bff; color:#000; transform:scale(1.1); box-shadow:0 0 20px #00f,0 0 40px #00f; }
@@ -64,7 +62,7 @@ html { scroll-behavior: smooth; }
 <div class="main-icon">🎬</div>
 
 <h1>Anime</h1>
-<p class="description">Explore your favorite anime genres! Tap any icon to discover Action, Adventure, Romance, Shonen, Shojo, Fantasy, Seinen, Josei, Comedy, and Drama!</p>
+<p class="description">Explore your favorite anime genres! Tap any icon to discover Action, Adventure, Romance, Shonen, Shojo, Fantasy, Seinen, Josei, Comedy, Drama, Mecha, Sports, Mystery, and more!</p>
 
 <!-- Genre Grid -->
 <div class="genre-grid">
@@ -78,6 +76,9 @@ html { scroll-behavior: smooth; }
   <a href="josei.html" class="genre" title="Josei anime focusing on daily life and romance!">👑<span>Josei</span></a>
   <a href="comedy.html" class="genre" title="Laugh with hilarious Comedy anime!">😂<span>Comedy</span></a>
   <a href="drama.html" class="genre" title="Experience intense Drama anime!">🎭<span>Drama</span></a>
+  <a href="mecha.html" class="genre" title="Robots, tech, and Mecha anime!">🤖<span>Mecha</span></a>
+  <a href="sports.html" class="genre" title="Sports anime full of energy!">🏀<span>Sports</span></a>
+  <a href="mystery.html" class="genre" title="Solve thrilling Mystery anime!">🕵️‍♂️<span>Mystery</span></a>
 </div>
 
 <!-- Back to Home -->
