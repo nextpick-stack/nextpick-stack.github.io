@@ -40,14 +40,15 @@ body{
     padding:20px 40px;
     border-radius:20px;
     transition:0.3s;
-    background:#111;
+    background:blue; /* Blue background for all icons */
+    color:white; /* Text/emoji stays white */
     width:200px;
     text-align:center;
 }
 
 .icon:hover{
     transform:scale(1.1);
-    background:#222;
+    background:#0055cc; /* Darker blue on hover */
 }
 
 .aiBox{
@@ -75,7 +76,7 @@ button{
 <h2>Your AI Entertainment Hub</h2>
 
 <div class="grid">
-    <a href="anime.html" style="text-decoration:none; color:white;">
+    <a href="anime.html" style="text-decoration:none;">
         <div class="icon">🎬 Anime</div>
     </a>
     <div class="icon" onclick="alert('Games Section Coming Soon')">🎮 Game</div>
@@ -112,7 +113,7 @@ const firebaseConfig = {
   projectId: "nextpickstack",
   storageBucket: "nextpickstack.firebasestorage.app",
   messagingSenderId: "1003117049650",
-  appId: "1:1003117049650:web:512f49297acb07ad1e892b",
+  appId: "1:1003117049650:web:512f49297ad1e892b",
   measurementId: "G-DB0FTXX9WR"
 };
 
