@@ -3,118 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NextPick Stack</title>
+<title>Next Pick Stack</title>
+
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
-body { background:#000; color:#fff; overflow-x:hidden; }
-
-/* SPLASH SCREEN */
-.splash { 
-    position:fixed; top:0; left:0; width:100%; height:100%; 
-    display:flex; flex-direction:column; justify-content:center; align-items:center; 
-    background:#000; z-index:10; transition: opacity 1s ease; 
-}
-.splash.hidden { opacity:0; pointer-events:none; }
-
-/* Animated logo */
-.logo { text-align:center; margin-bottom:20px; }
-.logo span { display:inline-block; margin:0 10px; font-weight:bold; font-size:80px; color:#fff; text-shadow: 0 0 15px #fff, 0 0 30px #fff; animation: flyin 1.5s ease forwards; }
-.logo span:nth-child(1) { animation-delay: 0s; }
-.logo span:nth-child(2) { animation-delay: 0.3s; }
-.logo span:nth-child(3) { animation-delay: 0.6s; }
-
-/* Fly-in animation */
-@keyframes flyin {
-    0% { transform: translateY(-200px) scale(0); opacity:0; }
-    60% { transform: translateY(20px) scale(1.2); opacity:1; }
-    100% { transform: translateY(0) scale(1); opacity:1; }
+body{
+    background:black;
+    color:white;
+    font-family:Arial;
+    text-align:center;
 }
 
-/* Splash description */
-.splash p { margin-top:20px; font-size:20px; opacity:0; max-width:500px; text-align:center; animation: fadein 2s ease forwards; animation-delay:1.5s; }
-@keyframes fadein { 0% {opacity:0;} 100%{opacity:0.8;} }
-
-/* MAIN HOMEPAGE */
-.main { display:none; padding:40px 20px; max-width:1000px; margin:0 auto; text-align:center; }
-
-/* Sections */
-.section { display:flex; flex-direction:column; align-items:center; padding:60px 20px; border-bottom:1px solid #222; }
-.section-icon { font-size:100px; text-shadow: 0 0 15px #007bff, 0 0 30px #007bff; margin-bottom:20px; }
-.section h2 { font-size:36px; margin-bottom:15px; text-shadow:0 0 10px #007bff; }
-.section p { font-size:18px; margin-bottom:20px; opacity:0.9; max-width:600px; }
-
-/* Buttons inside sections */
-.section a.button { 
-    display:flex; align-items:center; justify-content:center; background:#007bff; 
-    color:#fff; padding:20px 40px; border-radius:15px; font-weight:bold; font-size:20px; 
-    text-decoration:none; transition:0.3s; box-shadow: 0 0 15px #007bff, 0 0 30px #007bff;
+.logo{
+    font-size:50px;
+    margin-top:40px;
+    animation: glow 2s infinite alternate;
 }
-.section a.button:hover { background:#0056b3; transform:scale(1.05); box-shadow:0 0 20px #00f, 0 0 40px #00f; }
+
+@keyframes glow{
+    from{ text-shadow:0 0 10px blue; }
+    to{ text-shadow:0 0 30px blue; }
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:30px;
+    margin-top:60px;
+}
+
+.icon{
+    font-size:60px;
+    cursor:pointer;
+    padding:20px;
+    border-radius:20px;
+    transition:0.3s;
+    background:#111;
+}
+
+.icon:hover{
+    transform:scale(1.2);
+    background:#222;
+}
+
+.aiBox{
+    margin-top:50px;
+}
+button{
+    padding:15px;
+    background:blue;
+    color:white;
+    border:none;
+    font-size:18px;
+    border-radius:10px;
+}
 </style>
 </head>
+
 <body>
 
-<!-- SPLASH SCREEN -->
-<div class="splash" id="splash">
-    <div class="logo">
-        🎮<span>Next</span> 📚<span>Pick</span> 🎵<span>Stack</span>
-    </div>
-    <p>Welcome to NextPick Stack – your ultimate hub for anime, games, music, and books. Discover, explore, and enjoy content all in one place!</p>
+<div class="logo">
+🔵 Next ❤️ Pick 🤍 Stack
 </div>
 
-<!-- MAIN HOMEPAGE -->
-<div class="main" id="main">
+<h2>Your AI Entertainment Hub</h2>
 
-    <!-- ANIME SECTION FIRST -->
-    <div class="section" id="anime">
-        <div class="section-icon">🎬</div>
-        <h2>Anime</h2>
-        <p>Watch your favorite anime series and movies. Explore Action, Adventure, Fantasy, Romance, Comedy, Shonen, Shojo, and Seinen genres. Enjoy safe and legal streaming in one place.</p>
-        <a href="anime.html" class="button">Enter Anime Section</a>
-    </div>
+<div class="grid">
+<div class="icon" onclick="alert('Anime Section Coming Soon')">🎬</div>
+<div class="icon" onclick="alert('Games Section Coming Soon')">🎮</div>
+<div class="icon" onclick="alert('Music Section Coming Soon')">🎵</div>
+<div class="icon" onclick="alert('Books Section Coming Soon')">📚</div>
+</div>
 
-    <!-- GAME SECTION -->
-    <div class="section" id="game">
-        <div class="section-icon">🎮</div>
-        <h2>Games</h2>
-        <p>Explore a curated collection of exciting games, from Action, Adventure, Puzzle, RPG, Sports, Simulation, Strategy, to Casual genres. Play online or download your favorites directly.</p>
-        <a href="games.html" class="button">Enter Game Section</a>
-    </div>
-
-    <!-- MUSIC SECTION -->
-    <div class="section" id="music">
-        <div class="section-icon">🎵</div>
-        <h2>Music</h2>
-        <p>Discover the latest hits, classic tracks, and hidden musical treasures. Explore Pop, Rock, Hip Hop, Jazz, Classical, EDM, and more. Listen, enjoy, and share your favorite music easily.</p>
-        <a href="music.html" class="button">Enter Music Section</a>
-    </div>
-
-    <!-- BOOK SECTION -->
-    <div class="section" id="book">
-        <div class="section-icon">📚</div>
-        <h2>Books</h2>
-        <p>Dive into a world of literature. Find Fiction, Non-Fiction, Mystery, Sci-Fi, Fantasy, Romance, Biography, and more. Read your favorite titles and discover new stories.</p>
-        <a href="books.html" class="button">Enter Book Section</a>
-    </div>
-
+<div class="aiBox">
+<h3>🤖 AI Recommendation</h3>
+<button onclick="recommend()">Recommend Me</button>
+<p id="result"></p>
 </div>
 
 <script>
-// Splash screen animation
-const splash = document.getElementById('splash');
-const main = document.getElementById('main');
-
-function showMain() {
-    splash.classList.add('hidden');
-    setTimeout(() => {
-        splash.style.display = 'none';
-        main.style.display = 'block';
-    }, 1000);
+function recommend(){
+    const list=[
+        "Watch Attack on Titan",
+        "Listen to Chill Beats",
+        "Play Adventure RPG",
+        "Read Mystery Novel"
+    ];
+    document.getElementById("result").innerText=
+        list[Math.floor(Math.random()*list.length)];
 }
+</script>
 
-// Click or wait 3 seconds
-splash.addEventListener('click', showMain);
-setTimeout(showMain, 3000);
+<!-- FIREBASE CONNECTION -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDDqrEO3hnI2Y2Ui3hNaKxjZDV9JkV028M",
+  authDomain: "nextpickstack.firebaseapp.com",
+  projectId: "nextpickstack",
+  storageBucket: "nextpickstack.firebasestorage.app",
+  messagingSenderId: "1003117049650",
+  appId: "1:1003117049650:web:512f49297acb07ad1e892b",
+  measurementId: "G-DB0FTXX9WR"
+};
+
+initializeApp(firebaseConfig);
+console.log("Firebase Connected!");
 </script>
 
 </body>
