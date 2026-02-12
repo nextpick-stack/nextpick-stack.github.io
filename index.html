@@ -16,7 +16,7 @@ body{
 }
 
 .logo{
-    font-size:60px; /* Slightly bigger logo */
+    font-size:60px;
     margin-top:40px;
     animation: glow 2s infinite alternate;
 }
@@ -30,14 +30,14 @@ body{
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:60px; /* More space between icons */
+    gap:60px;
     margin-top:60px;
 }
 
 .icon{
-    font-size:90px; /* Bigger icons */
+    font-size:90px;
     cursor:pointer;
-    padding:30px 60px; /* Bigger padding */
+    padding:30px 60px;
     border-radius:20px;
     transition:0.3s;
     background:blue;
@@ -63,6 +63,35 @@ button{
     font-size:18px;
     border-radius:10px;
     cursor:pointer;
+    margin-top:10px;
+}
+
+/* Sections */
+.section{
+    display:none; /* Hidden by default */
+    margin-top:40px;
+}
+
+.active{
+    display:block;
+}
+
+.genreBtn{
+    font-size:24px;
+    padding:15px 30px;
+    border-radius:15px;
+    border:none;
+    cursor:pointer;
+    background:blue;
+    color:white;
+    width:200px;
+    transition:0.3s;
+    margin-top:10px;
+}
+
+.genreBtn:hover{
+    background:#0055cc;
+    transform:scale(1.05);
 }
 </style>
 </head>
@@ -76,19 +105,98 @@ button{
 <h2>Your AI Entertainment Hub</h2>
 
 <div class="grid">
-    <a href="anime.html" style="text-decoration:none;">
-        <div class="icon">🎬 Anime</div>
-    </a>
-    <div class="icon" onclick="alert('Games Section Coming Soon')">🎮 Game</div>
+    <div class="icon" onclick="showSection('home')">🏠 Home</div>
+    <div class="icon" onclick="showSection('anime')">🎬 Anime</div>
+    <div class="icon" onclick="showSection('game')">🎮 Game</div>
 </div>
 
+<!-- AI Recommendation always visible -->
 <div class="aiBox">
 <h3>🤖 AI Recommendation</h3>
 <button onclick="recommend()">Recommend Me</button>
 <p id="result"></p>
 </div>
 
+<!-- Home Section -->
+<div id="home" class="section active">
+<h1>Welcome to NextPick Stack!</h1>
+<p>Click Anime or Game to explore.</p>
+</div>
+
+<!-- Anime Section -->
+<div id="anime" class="section">
+<h1>🎬 Anime Section</h1>
+<p>Select a genre to see recommendations:</p>
+<div class="genres">
+    <button class="genreBtn" onclick="showAnime('Action')">Action</button>
+    <button class="genreBtn" onclick="showAnime('Adventure')">Adventure</button>
+    <button class="genreBtn" onclick="showAnime('Romance')">Romance</button>
+    <button class="genreBtn" onclick="showAnime('Comedy')">Comedy</button>
+    <button class="genreBtn" onclick="showAnime('Horror')">Horror</button>
+    <button class="genreBtn" onclick="showAnime('Fantasy')">Fantasy</button>
+</div>
+<div id="animeList"></div>
+</div>
+
+<!-- Game Section -->
+<div id="game" class="section">
+<h1>🎮 Game Section</h1>
+<p>Select a genre to see recommendations:</p>
+<div class="genres">
+    <button class="genreBtn" onclick="showGames('Action')">Action</button>
+    <button class="genreBtn" onclick="showGames('Adventure')">Adventure</button>
+    <button class="genreBtn" onclick="showGames('Puzzle')">Puzzle</button>
+    <button class="genreBtn" onclick="showGames('RPG')">RPG</button>
+    <button class="genreBtn" onclick="showGames('Strategy')">Strategy</button>
+    <button class="genreBtn" onclick="showGames('Sports')">Sports</button>
+</div>
+<div id="gameList"></div>
+</div>
+
 <script>
+// Function to switch sections
+function showSection(section){
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(section).classList.add('active');
+}
+
+// Anime recommendations
+const animeDB = {
+    Action: ["Attack on Titan", "Demon Slayer", "One Punch Man"],
+    Adventure: ["Naruto", "Fullmetal Alchemist", "One Piece"],
+    Romance: ["Your Name", "Toradora!", "Fruits Basket"],
+    Comedy: ["Gintama", "KonoSuba", "The Devil is a Part-Timer!"],
+    Horror: ["Tokyo Ghoul", "Another", "Parasyte"],
+    Fantasy: ["Sword Art Online", "Re:Zero", "No Game No Life"]
+};
+
+function showAnime(genre){
+    const list = animeDB[genre];
+    document.getElementById("animeList").innerHTML = 
+        `<h2>${genre} Anime Recommendations:</h2><ul>` +
+        list.map(anime => `<li>${anime}</li>`).join("") +
+        `</ul>`;
+}
+
+// Game recommendations
+const gameDB = {
+    Action: ["Devil May Cry", "God of War", "Bayonetta"],
+    Adventure: ["Zelda: Breath of the Wild", "Uncharted", "Tomb Raider"],
+    Puzzle: ["Portal", "Tetris", "Candy Crush"],
+    RPG: ["Final Fantasy VII", "Persona 5", "The Witcher 3"],
+    Strategy: ["Civilization VI", "Starcraft II", "Age of Empires II"],
+    Sports: ["FIFA 23", "NBA 2K23", "Rocket League"]
+};
+
+function showGames(genre){
+    const list = gameDB[genre];
+    document.getElementById("gameList").innerHTML = 
+        `<h2>${genre} Game Recommendations:</h2><ul>` +
+        list.map(game => `<li>${game}</li>`).join("") +
+        `</ul>`;
+}
+
+// AI recommendation
 function recommend(){
     const list=[
         "Watch Attack on Titan",
@@ -101,7 +209,7 @@ function recommend(){
 }
 </script>
 
-<!-- FIREBASE CONNECTION -->
+<!-- Firebase -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
