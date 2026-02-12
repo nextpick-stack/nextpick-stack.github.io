@@ -15,6 +15,9 @@ h1{margin-top:20px;font-size:28px;color:white;text-shadow:0 0 5px #00f;}
 #animeList{margin-top:40px;font-size:20px;}
 .backBtn{margin-top:30px;padding:12px 25px;font-size:18px;background:#0055ff;color:white;border:none;border-radius:10px;cursor:pointer;box-shadow:0 0 10px #0055ff,0 0 20px #0055ff;transition:0.3s;}
 .backBtn:hover{background:#0077ff;box-shadow:0 0 20px #00f,0 0 40px #00f;}
+.aiBox{margin-top:40px;}
+.aiBox button{padding:12px 25px;background:#0055ff;color:white;border:none;border-radius:10px;cursor:pointer;box-shadow:0 0 10px #0055ff,0 0 20px #0055ff;transition:0.3s;margin-top:10px;}
+.aiBox button:hover{background:#0077ff;box-shadow:0 0 20px #00f,0 0 40px #00f;}
 @media(max-width:480px){.genreBtn{width:180px;font-size:20px;padding:12px 25px;}.logo{font-size:40px;}h1{font-size:24px;}}
 </style>
 </head>
@@ -34,6 +37,15 @@ h1{margin-top:20px;font-size:28px;color:white;text-shadow:0 0 5px #00f;}
 </div>
 
 <div id="animeList"></div>
+
+<!-- AI Recommendation -->
+<div class="aiBox">
+<h3>🤖 AI Recommendation</h3>
+<p>Select a genre first to get better AI suggestions.</p>
+<button onclick="recommendAnime()">Recommend Me</button>
+<p id="animeResult"></p>
+</div>
+
 <button class="backBtn" onclick="window.location.href='index.html'">🏠 Back to Home</button>
 
 <script>
@@ -45,9 +57,23 @@ const animeDB={
     Horror:["Tokyo Ghoul","Another","Parasyte"],
     Fantasy:["Sword Art Online","Re:Zero","No Game No Life"]
 };
+
+let currentAnimeGenre = null;
+
 function showAnime(genre){
+    currentAnimeGenre = genre;
     const list=animeDB[genre];
     document.getElementById("animeList").innerHTML=`<h2>${genre} Anime Recommendations:</h2><ul>`+list.map(a=>`<li>${a}</li>`).join("")+`</ul>`;
+}
+
+function recommendAnime(){
+    if(!currentAnimeGenre){
+        alert("Please select a genre first!");
+        return;
+    }
+    const list = animeDB[currentAnimeGenre];
+    const random = list[Math.floor(Math.random()*list.length)];
+    document.getElementById("animeResult").innerText = `We recommend: ${random}`;
 }
 </script>
 
