@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Section - Next Pick Stack</title>
+
+<style>
+body{
+    background:black;
+    color:white;
+    font-family:Arial, sans-serif;
+    text-align:center;
+    margin:0;
+    padding:0;
+}
+
+h1{
+    margin-top:40px;
+}
+
+.genres{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+    margin-top:40px;
+}
+
+.genreBtn{
+    font-size:24px;
+    padding:15px 30px;
+    border-radius:15px;
+    border:none;
+    cursor:pointer;
+    background:blue; /* Blue like homepage icons */
+    color:white; /* White text */
+    width:200px;
+    transition:0.3s;
+}
+
+.genreBtn:hover{
+    background:#0055cc; /* Darker blue on hover */
+    transform:scale(1.05);
+}
+
+#gameList{
+    margin-top:50px;
+    font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎮 Game Section</h1>
+<p>Select a genre to see recommended games:</p>
+
+<div class="genres">
+    <button class="genreBtn" onclick="showGames('Action')">Action</button>
+    <button class="genreBtn" onclick="showGames('Adventure')">Adventure</button>
+    <button class="genreBtn" onclick="showGames('Puzzle')">Puzzle</button>
+    <button class="genreBtn" onclick="showGames('RPG')">RPG</button>
+    <button class="genreBtn" onclick="showGames('Strategy')">Strategy</button>
+    <button class="genreBtn" onclick="showGames('Sports')">Sports</button>
+</div>
+
+<div id="gameList"></div>
+
+<script>
+const gameDB = {
+    Action: ["Devil May Cry", "God of War", "Bayonetta"],
+    Adventure: ["Zelda: Breath of the Wild", "Uncharted", "Tomb Raider"],
+    Puzzle: ["Portal", "Tetris", "Candy Crush"],
+    RPG: ["Final Fantasy VII", "Persona 5", "The Witcher 3"],
+    Strategy: ["Civilization VI", "Starcraft II", "Age of Empires II"],
+    Sports: ["FIFA 23", "NBA 2K23", "Rocket League"]
+};
+
+function showGames(genre){
+    const list = gameDB[genre];
+    document.getElementById("gameList").innerHTML = 
+        `<h2>${genre} Game Recommendations:</h2><ul>` +
+        list.map(game => `<li>${game}</li>`).join("") +
+        `</ul>`;
+}
+</script>
+
+</body>
+</html>
