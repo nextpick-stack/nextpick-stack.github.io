@@ -18,7 +18,24 @@ h1{margin-top:20px;font-size:28px;color:white;text-shadow:0 0 5px #00f;}
 .aiBox{margin-top:40px;}
 .aiBox button{padding:12px 25px;background:#0055ff;color:white;border:none;border-radius:10px;cursor:pointer;box-shadow:0 0 10px #0055ff,0 0 20px #0055ff;transition:0.3s;margin-top:10px;}
 .aiBox button:hover{background:#0077ff;box-shadow:0 0 20px #00f,0 0 40px #00f;}
-@media(max-width:480px){.genreBtn{width:180px;font-size:20px;padding:12px 25px;}.logo{font-size:40px;}h1{font-size:24px;}}
+.commentsBox{margin-top:40px;}
+.commentsBox input{padding:10px;border-radius:5px;width:70%;margin-top:10px;}
+.commentsBox button{padding:10px 20px;margin-top:10px;background:#0055ff;color:white;border:none;border-radius:10px;cursor:pointer;box-shadow:0 0 10px #0055ff,0 0 20px #0055ff;transition:0.3s;}
+.commentsBox button:hover{background:#0077ff;box-shadow:0 0 20px #00f,0 0 40px #00f;}
+@media(max-width:768px){
+    .logo{font-size:45px;}
+    h1{font-size:26px;}
+    .genreBtn{width:180px;font-size:20px;padding:12px 25px;}
+    .backBtn{padding:10px 20px;font-size:16px;}
+    .aiBox button{padding:10px 20px;font-size:16px;}
+}
+@media(max-width:480px){
+    .logo{font-size:40px;}
+    h1{font-size:24px;}
+    .genreBtn{width:150px;font-size:18px;padding:10px 18px;}
+    .backBtn{padding:8px 18px;font-size:14px;}
+    .aiBox button{padding:8px 18px;font-size:14px;}
+}
 </style>
 </head>
 <body>
@@ -44,6 +61,14 @@ h1{margin-top:20px;font-size:28px;color:white;text-shadow:0 0 5px #00f;}
 <p>Select a genre first to get better AI suggestions.</p>
 <button onclick="recommendGame()">Recommend Me</button>
 <p id="gameResult"></p>
+</div>
+
+<!-- Comment Section -->
+<div class="commentsBox">
+<h3>💬 Comments</h3>
+<input type="text" id="commentInput" placeholder="Write a comment...">
+<button onclick="postComment()">Post</button>
+<div id="commentsList"></div>
 </div>
 
 <button class="backBtn" onclick="window.location.href='index.html'">🏠 Back to Home</button>
@@ -74,6 +99,17 @@ function recommendGame(){
     const list = gameDB[currentGameGenre];
     const random = list[Math.floor(Math.random()*list.length)];
     document.getElementById("gameResult").innerText = `We recommend: ${random}`;
+}
+
+function postComment(){
+    const comment = document.getElementById("commentInput").value;
+    if(comment==="") return;
+    const div = document.createElement("div");
+    div.style.color="white";
+    div.style.margin="5px 0";
+    div.textContent = comment;
+    document.getElementById("commentsList").appendChild(div);
+    document.getElementById("commentInput").value="";
 }
 </script>
 
