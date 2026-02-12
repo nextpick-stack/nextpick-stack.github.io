@@ -16,7 +16,7 @@ body{
 }
 
 .logo{
-    font-size:50px;
+    font-size:60px; /* Slightly bigger logo */
     margin-top:40px;
     animation: glow 2s infinite alternate;
 }
@@ -30,25 +30,25 @@ body{
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:40px;
+    gap:60px; /* More space between icons */
     margin-top:60px;
 }
 
 .icon{
-    font-size:60px;
+    font-size:90px; /* Bigger icons */
     cursor:pointer;
-    padding:20px 40px;
+    padding:30px 60px; /* Bigger padding */
     border-radius:20px;
     transition:0.3s;
-    background:blue; /* Blue background for all icons */
-    color:white; /* Text/emoji stays white */
-    width:200px;
+    background:blue;
+    color:white;
+    width:250px;
     text-align:center;
 }
 
 .icon:hover{
-    transform:scale(1.1);
-    background:#0055cc; /* Darker blue on hover */
+    transform:scale(1.15);
+    background:#0055cc;
 }
 
 .aiBox{
@@ -70,7 +70,7 @@ button{
 <body>
 
 <div class="logo">
-🔵 Next ❤️ Pick 🤍 Stack
+🍿 NextPick Stack 🎮
 </div>
 
 <h2>Your AI Entertainment Hub</h2>
@@ -80,8 +80,6 @@ button{
         <div class="icon">🎬 Anime</div>
     </a>
     <div class="icon" onclick="alert('Games Section Coming Soon')">🎮 Game</div>
-    <div class="icon" onclick="alert('Music Section Coming Soon')">🎵 Music</div>
-    <div class="icon" onclick="alert('Books Section Coming Soon')">📚 Book</div>
 </div>
 
 <div class="aiBox">
@@ -113,7 +111,7 @@ const firebaseConfig = {
   projectId: "nextpickstack",
   storageBucket: "nextpickstack.firebasestorage.app",
   messagingSenderId: "1003117049650",
-  appId: "1:1003117049650:web:512f49297ad1e892b",
+  appId: "1:1003117049650:web:512f49297acb07ad1e892b",
   measurementId: "G-DB0FTXX9WR"
 };
 
